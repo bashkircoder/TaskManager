@@ -1,0 +1,9 @@
+﻿@using TaskStatus = TaskManager.Common.TaskStatus
+@model List<TaskDto>
+
+@{
+    var count = Model.Where(x => x.TaskStatus is TaskStatus.New or TaskStatus.InProgress).ToList();
+    <h1>На данный момент не выполнено @count.Count задач</h1>
+}
+
+

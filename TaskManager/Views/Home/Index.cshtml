@@ -1,0 +1,14 @@
+﻿@addTagHelper *, TaskManager
+@model List<TaskDto>
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Task Manager</h1>
+    
+    <vc:counter-component tasks="Model"/>
+    <vc:task-component tasks="Model"/>
+    
+</div>

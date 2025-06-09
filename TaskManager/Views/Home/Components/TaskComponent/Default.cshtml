@@ -1,0 +1,33 @@
+﻿@using TaskManager.Components
+@using TaskManager.Data
+@model List<TaskDto>
+
+<h1>Список задач</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <th scope="row">@Model[i].Id</th>
+            <td>@Model[i].Description</td>
+            <td>
+                <select asp-for="@Model[i].TaskStatus" class="form-select" aria-label="Default select example">
+                    <option selected>@Model[i].TaskStatus</option>
+                    <option value="0">@TaskManager.Common.TaskStatus.New</option>
+                    <option value="1">@TaskManager.Common.TaskStatus.InProgress</option>
+                    <option value="2">@TaskManager.Common.TaskStatus.Done</option>
+                </select>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
